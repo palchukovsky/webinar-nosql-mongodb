@@ -4,4 +4,8 @@ cmake_minimum_required(VERSION 3.10)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-add_executable(MongoDbDemo main.cpp)
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup()
+
+add_executable(mongodb_demo main.cpp)
+target_link_libraries(mongodb_demo ${CONAN_LIBS})
